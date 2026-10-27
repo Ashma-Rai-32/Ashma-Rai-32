@@ -1,9 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="340" viewBox="0 0 1000 340" role="img"><style>
 .serif{font-family:'Iowan Old Style','Charter','Georgia',serif}.sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}.mono{font-family:'SF Mono','JetBrains Mono',Menlo,Consolas,monospace}
 </style><rect x=".5" y=".5" width="999" height="339" rx="18" fill="#F5F2EB" stroke="#D9D1C1"/>
+<defs>
+  <pattern id="grid" width="4" height="4" patternUnits="userSpaceOnUse">
+    <path d="M4 0V4H0" fill="none" stroke="#050607" stroke-width="1"/>
+  </pattern>
+  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
 <text x="56" y="80" class="mono" font-size="13" fill="#6E685D" letter-spacing="2">HELLO, I'M</text>
 <text x="52" y="154" class="serif" font-size="76" fill="#1B1A17">Ashma Rai<tspan fill="#D9472B">.</tspan></text>
 <text x="56" y="198" class="sans" font-size="18" fill="#6E685D">I design and build interfaces, AI agents and small machines.</text>
 <line x1="56" y1="284" x2="612" y2="284" stroke="#D9D1C1"/>
 <text x="56" y="312" class="mono" font-size="11" fill="#6E685D" letter-spacing="1.6">AI AGENTS  ·  HARDWARE  ·  INTERACTION DESIGN  ·  COMPUTER VISION</text>
+
+<rect x="664" y="56" width="288" height="228" rx="16" fill="#17181A"/>
+<rect x="680" y="72" width="256" height="136" rx="6" fill="#050607"/>
+<g filter="url(#glow)">
+  <rect x="742" y="100" width="36" height="52" rx="10" fill="#A6ECFF"/>
+  <rect x="838" y="100" width="36" height="52" rx="10" fill="#A6ECFF"/>
+  <path d="M796 174 q12 10 24 0" fill="none" stroke="#A6ECFF" stroke-width="4" stroke-linecap="square"/>
+</g>
+<rect x="680" y="72" width="256" height="136" fill="url(#grid)" opacity=".85"/>
+<text x="682" y="238" class="mono" font-size="11" fill="#8A8F96">bobby-pinout</text>
+<text x="682" y="256" class="mono" font-size="10" fill="#5E636A">ESP32 · SSD1306 · 128×64</text>
+<circle cx="926" cy="234" r="5" fill="#D9472B"/>
+<rect x="690" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="708" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="726" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="744" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="762" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="780" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="798" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="816" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="834" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="852" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="870" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="888" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="906" y="268" width="8" height="6" rx="1" fill="#C9A85A"/><rect x="924" y="268" width="8" height="6" rx="1" fill="#C9A85A"/>
 </svg>
