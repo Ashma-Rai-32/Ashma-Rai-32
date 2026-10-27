@@ -2,7 +2,8 @@
 """Generate the SVGs used by the profile README.
 
 Run from the repo root:  python3 scripts/build_svgs.py
-Every asset is written into assets/ as <name>-<theme>.svg.
+Every asset is written into assets/ twice, as <name>-light.svg and <name>-dark.svg,
+so the README can swap them with <picture> to match the viewer's GitHub theme.
 Edit copy or colours here, never in the generated files.
 """
 from pathlib import Path
@@ -13,6 +14,8 @@ OUT = Path(__file__).resolve().parent.parent / "assets"
 THEMES = {
     "light": dict(bg="#F5F2EB", surface="#EBE6DA", surface2="#E0D9CA", ink="#1B1A17",
                   muted="#6E685D", line="#D9D1C1", accent="#D9472B", good="#2E7D5B", bad="#C23A22"),
+    "dark": dict(bg="#121211", surface="#1D1C1A", surface2="#272522", ink="#EFEBE2",
+                 muted="#9C968A", line="#33302B", accent="#FF6B47", good="#5CC79A", bad="#FF6B47"),
 }
 FONTS = dict(
     serif="'Iowan Old Style','Charter','Georgia',serif",
