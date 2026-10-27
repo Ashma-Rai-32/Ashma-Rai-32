@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="340" viewBox="0 0 1000 340" role="img"><style>
+.serif{font-family:'Iowan Old Style','Charter','Georgia',serif}.sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}.mono{font-family:'SF Mono','JetBrains Mono',Menlo,Consolas,monospace}
+</style><rect x=".5" y=".5" width="999" height="339" rx="18" fill="#F5F2EB" stroke="#D9D1C1"/>
+<text x="56" y="80" class="mono" font-size="13" fill="#6E685D" letter-spacing="2">HELLO, I'M</text>
+<text x="52" y="154" class="serif" font-size="76" fill="#1B1A17">Ashma Rai<tspan fill="#D9472B">.</tspan></text>
+<text x="56" y="198" class="sans" font-size="18" fill="#6E685D">I design and build interfaces, AI agents and small machines.</text>
+<line x1="56" y1="284" x2="612" y2="284" stroke="#D9D1C1"/>
+<text x="56" y="312" class="mono" font-size="11" fill="#6E685D" letter-spacing="1.6">AI AGENTS  ·  HARDWARE  ·  INTERACTION DESIGN  ·  COMPUTER VISION</text>
+</svg>

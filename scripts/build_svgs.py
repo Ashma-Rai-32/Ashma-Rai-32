@@ -33,9 +33,21 @@ def svg(w, h, css, body, framed=True):
             f"<style>{BASE_CSS}{css}</style>{frame}{body}</svg>")
 
 
+# ---------------------------------------------------------------- hero
+
+HERO = """
+<text x="56" y="80" class="mono" font-size="13" fill="$muted" letter-spacing="2">HELLO, I'M</text>
+<text x="52" y="154" class="serif" font-size="76" fill="$ink">Ashma Rai<tspan fill="$accent">.</tspan></text>
+<text x="56" y="198" class="sans" font-size="18" fill="$muted">I design and build interfaces, AI agents and small machines.</text>
+<line x1="56" y1="284" x2="612" y2="284" stroke="$line"/>
+<text x="56" y="312" class="mono" font-size="11" fill="$muted" letter-spacing="1.6">AI AGENTS  ·  HARDWARE  ·  INTERACTION DESIGN  ·  COMPUTER VISION</text>
+"""
+
 # ---------------------------------------------------------------- build
 
-ASSETS = {}
+ASSETS = {
+    "hero": svg(1000, 340, "", HERO),
+}
 
 
 def main():
