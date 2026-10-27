@@ -40,53 +40,74 @@ def svg(w, h, css, body, framed=True):
             f"<style>{BASE_CSS}{css}</style>{frame}{body}</svg>")
 
 
-# ---------------------------------------------------------------- hero
+# ---------------------------------------------------------------- the cat
+# Ashma's original character, drawn in Figma (assets/cat.svg, assets/tail.svg).
+# Shapes are copied as-is so the parts can be moved and animated separately.
 
-HERO_CSS = """
-.blink{animation:blinkon 1s steps(1) infinite}
-@keyframes blinkon{50%{opacity:0}}
-.eye{animation:eye 5s infinite}
-@keyframes eye{0%,90%,100%{transform:scaleY(1)}94%{transform:scaleY(.1)}}
-.look{animation:look 10s ease-in-out infinite}
-@keyframes look{0%,35%{transform:translateX(0)}40%,55%{transform:translateX(-12px)}60%,78%{transform:translateX(12px)}83%,100%{transform:translateX(0)}}
+CAT_BODY = """
+<path d="M51 88H16C7.16344 88 0 95.1634 0 104V168C0 176.837 7.16344 184 16 184H51C59.8366 184 67 176.837 67 168V104C67 95.1634 59.8366 88 51 88Z" fill="#8E7550"/>
+<path d="M210 95H38C29.1634 95 22 102.163 22 111V164C22 172.837 29.1634 180 38 180H210C218.837 180 226 172.837 226 164V111C226 102.163 218.837 95 210 95Z" fill="#725B2E"/>
+<path d="M60 134H16C7.16344 134 0 141.163 0 150V168C0 176.837 7.16344 184 16 184H60C68.8366 184 76 176.837 76 168V150C76 141.163 68.8366 134 60 134Z" fill="#8E7550"/>
+"""
+CAT_PAWS = """
+<path d="M173 155H138C129.163 155 122 162.163 122 171C122 179.837 129.163 187 138 187H173C181.837 187 189 179.837 189 171C189 162.163 181.837 155 173 155Z" fill="#8E7550"/>
+<path d="M229 155H208C199.163 155 192 162.163 192 171C192 179.837 199.163 187 208 187H229C237.837 187 245 179.837 245 171C245 162.163 237.837 155 229 155Z" fill="#8E7550"/>
+"""
+CAT_HEAD = """
+<path d="M117.5 83V53C117.5 35.3269 131.827 21 149.5 21H213C230.673 21 245 35.3269 245 53V83C245 100.673 230.673 115 213 115H149.5C131.827 115 117.5 100.673 117.5 83Z" fill="#8E7550"/>
+<path d="M252.215 4.05475L214.669 21.3838C212.02 22.6062 211.528 26.161 213.746 28.0563L237.4 48.2735C239.515 50.0815 242.785 49.2307 243.75 46.6208L257.642 9.07462C258.88 5.72993 255.453 2.56026 252.215 4.05475Z" fill="#725B2E"/>
+<path d="M118.25 48.6208L103.893 9.81926C102.728 6.67123 105.725 3.57504 108.909 4.63649L123.142 9.38061C123.38 9.46003 123.61 9.56171 123.83 9.68431L147.99 23.1979C150.42 24.5569 150.753 27.9207 148.636 29.7296L124.6 50.2735C122.485 52.0815 119.215 51.2307 118.25 48.6208Z" fill="#725B2E"/>
+<g fill="none" stroke-width="8" stroke-linecap="round" stroke="#FFDEA6">
+  <path d="M161.6 87.0264V94.9737C161.6 99.392 165.182 102.974 169.6 102.974H173.8C178.218 102.974 181.8 99.392 181.8 94.9737V90.7474"/>
+  <path d="M202 87.0264V94.9737C202 99.392 198.418 102.974 194 102.974H189.8C185.382 102.974 181.8 99.392 181.8 94.9737V90.7474"/>
+</g>
+<g clip-path="url(#cat-eye-l)">
+  <path d="M164 49H148C143.582 49 140 52.5817 140 57V73C140 77.4183 143.582 81 148 81H164C168.418 81 172 77.4183 172 73V57C172 52.5817 168.418 49 164 49Z" fill="white"/>
+  <path d="M164 49H160C155.582 49 152 52.5817 152 57V61C152 65.4183 155.582 69 160 69H164C168.418 69 172 65.4183 172 61V57C172 52.5817 168.418 49 164 49Z" fill="#3B0908"/>
+</g>
+<g clip-path="url(#cat-eye-r)">
+  <path d="M213 49H197C192.582 49 189 52.5817 189 57V73C189 77.4183 192.582 81 197 81H213C217.418 81 221 77.4183 221 73V57C221 52.5817 217.418 49 213 49Z" fill="white"/>
+  <path d="M214 49H210C205.582 49 202 52.5817 202 57V61C202 65.4183 205.582 69 210 69H214C218.418 69 222 65.4183 222 61V57C222 52.5817 218.418 49 214 49Z" fill="#3B0908"/>
+</g>
+<g stroke-width="8" stroke-linecap="round" stroke="#3B0908">
+  <path d="M96 63L126.361 73.109"/><path d="M89 84L127 84"/><path d="M97.8273 104.825L127.614 93.1303"/>
+  <path d="M265.613 69L234 73.959"/><path d="M271.614 84L233.614 84"/><path d="M262.786 104.825L233 93.1302"/>
+</g>
+"""
+CAT_DEFS = """
+<clipPath id="cat-eye-l"><rect x="140" y="49" width="32" height="32" rx="8"/></clipPath>
+<clipPath id="cat-eye-r"><rect x="189" y="49" width="32" height="32" rx="8"/></clipPath>
+"""
+# The Figma export's viewBox stopped at y=602 and cut off the bottom of the tail;
+# using the path directly avoids that crop.
+CAT_TAIL = """
+<path d="M61.5 16V160.5C61.5 169.337 68.6634 176.5 77.5 176.5H99C107.837 176.5 115 183.663 115 192.5V224C115 232.837 122.163 240 131 240H150.5C159.337 240 166.5 247.163 166.5 256V429.5C166.5 438.337 159.337 445.5 150.5 445.5H131C122.163 445.5 115 452.663 115 461.5V507C115 515.837 107.837 523 99 523H71.5C62.6634 523 55.5 530.163 55.5 539V585.5C55.5 594.337 48.3366 601.5 39.5 601.5H16C7.16344 601.5 0 608.663 0 617.5V651.5C0 660.337 7.16344 667.5 16 667.5H225.5C234.337 667.5 241.5 660.337 241.5 651.5V593C241.5 584.163 248.663 577 257.5 577H286.5C295.337 577 302.5 569.837 302.5 561V512C302.5 503.163 309.663 496 318.5 496H342C350.837 496 358 488.837 358 480V425C358 416.163 365.163 409 374 409H391C399.837 409 407 401.837 407 393V192.5C407 183.663 399.837 176.5 391 176.5H374C365.163 176.5 358 169.337 358 160.5V88C358 79.1634 350.837 72 342 72H318.5C309.663 72 302.5 64.8366 302.5 56V16C302.5 7.16344 295.337 0 286.5 0H77.5C68.6634 0 61.5 7.16345 61.5 16Z" fill="#534342"/>
 """
 
-HERO = f"""
-<defs>
-  <pattern id="grid" width="4" height="4" patternUnits="userSpaceOnUse">
-    <path d="M4 0V4H0" fill="none" stroke="{OLED_SCREEN}" stroke-width="1"/>
-  </pattern>
-  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-    <feGaussianBlur stdDeviation="3" result="b"/>
-    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-</defs>
-<text x="56" y="104" class="mono" font-size="13" fill="$muted" letter-spacing="2">HELLO, I'M</text>
-<text x="52" y="178" class="serif" font-size="76" fill="$ink">Ashma Rai<tspan fill="$accent">.</tspan></text>
-<text x="56" y="222" class="sans" font-size="18" fill="$muted">I design and build interfaces, AI agents and small machines.</text>
-<line x1="56" y1="252" x2="612" y2="252" stroke="$line"/>
-<text x="56" y="280" class="mono" font-size="11" fill="$muted" letter-spacing="1.6">AI AGENTS  ·  HARDWARE  ·  INTERACTION DESIGN  ·  COMPUTER VISION</text>
+# ---------------------------------------------------------------- hero: the cat on the table
 
-<rect x="664" y="56" width="288" height="228" rx="16" fill="{OLED_FRAME}"/>
-<rect x="680" y="72" width="256" height="136" rx="6" fill="{OLED_SCREEN}"/>
-<g filter="url(#glow)">
-  <g class="look c">
-    <rect class="eye c" x="742" y="100" width="36" height="52" rx="10" fill="{OLED_PX}"/>
-    <rect class="eye c" x="838" y="100" width="36" height="52" rx="10" fill="{OLED_PX}"/>
-  </g>
-  <path d="M796 174 q12 10 24 0" fill="none" stroke="{OLED_PX}" stroke-width="4" stroke-linecap="square"/>
-</g>
-<rect x="680" y="72" width="256" height="136" fill="url(#grid)" opacity=".85"/>
-<text x="682" y="238" class="mono" font-size="11" fill="#8A8F96">bobby-pinout</text>
-<text x="682" y="256" class="mono" font-size="10" fill="#5E636A">ESP32 · SSD1306 · 128×64</text>
-<circle class="blink" cx="926" cy="234" r="5" fill="$accent"/>
-{''.join(f'<rect x="{690 + i * 18}" y="268" width="8" height="6" rx="1" fill="#C9A85A"/>' for i in range(14))}
+TABLE_TOP, TABLE_X, TABLE_W = 393, 110, 840
+CAT_X = 160  # the cat's paws rest on the table top
+
+HERO = f"""
+<defs>{CAT_DEFS}</defs>
+<text x="56" y="84" class="mono" font-size="13" fill="$muted" letter-spacing="2">HELLO, I'M</text>
+<text x="52" y="146" class="serif" font-size="64" fill="$ink">Ashma Rai<tspan fill="$accent">.</tspan></text>
+<text x="56" y="184" class="sans" font-size="17" fill="$muted">I design and build interfaces, AI agents and small machines.</text>
+
+<line x1="40" y1="496" x2="960" y2="496" stroke="$line" stroke-width="2" stroke-linecap="round"/>
+<rect x="{TABLE_X + 40}" y="{TABLE_TOP + 20}" width="28" height="80" rx="14" fill="$line"/>
+<rect x="{TABLE_X + TABLE_W - 68}" y="{TABLE_TOP + 20}" width="28" height="80" rx="14" fill="$line"/>
+<rect x="{TABLE_X}" y="{TABLE_TOP}" width="{TABLE_W}" height="30" rx="15" fill="$surface2"/>
+
+<g transform="translate({CAT_X} {TABLE_TOP - 187})">{CAT_BODY}{CAT_PAWS}{CAT_HEAD}</g>
+<g transform="translate({TABLE_X + 2} {TABLE_TOP - 21}) scale(.18)">{CAT_TAIL}</g>
 """
 
 # ---------------------------------------------------------------- build
 
 ASSETS = {
-    "hero": svg(1000, 340, HERO_CSS, HERO),
+    "hero": svg(1000, 520, "", HERO),
 }
 
 
