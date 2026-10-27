@@ -49,25 +49,37 @@ CAT_BODY = """
 <path d="M210 95H38C29.1634 95 22 102.163 22 111V164C22 172.837 29.1634 180 38 180H210C218.837 180 226 172.837 226 164V111C226 102.163 218.837 95 210 95Z" fill="#725B2E"/>
 <path d="M60 134H16C7.16344 134 0 141.163 0 150V168C0 176.837 7.16344 184 16 184H60C68.8366 184 76 176.837 76 168V150C76 141.163 68.8366 134 60 134Z" fill="#8E7550"/>
 """
-CAT_PAWS = """
+# The toe beans from assets/paw-2.svg, shown when the cat lifts his right paw
+PAW_BEANS = """
+<path d="M39.2981 14.4172L38.0874 16.8986L37.7178 16.2375C36.2638 13.6365 33.3844 12.1694 30.4255 12.5218C26.9365 12.9374 24.2282 15.7621 23.9598 19.2656L23.6983 22.6806C21.1082 21.6275 18.1345 22.365 16.3367 24.5063L15.6979 25.2672C14.1022 27.1677 13.5049 29.7136 14.0889 32.1254L14.1873 32.532C14.6338 34.3759 15.6751 36.0216 17.1503 37.2146L19.3313 38.9784C20.8667 39.9921 20.8258 41.8813 21.4231 44.2702C22.5867 48.9247 28.9867 53.5793 35.8593 54.9664C44.7047 56.7517 51.6956 53.0714 55.5596 49.8904C59.2038 46.8904 61.5029 40.7042 62.1579 37.0567C62.3136 36.19 62.4878 35.324 62.795 34.4987L64.5693 29.7332C65.721 26.6397 64.6556 23.1266 62.0121 21.1496C59.4799 19.2557 55.9774 19.1779 53.393 20.9998L53.4191 17.7381C53.4463 14.3499 51.1799 11.3716 47.907 10.4947C44.4684 9.5733 40.8591 11.2178 39.2981 14.4172Z" fill="#904A45"/>
+<ellipse cx="40.0413" cy="39.5077" rx="13.9636" ry="10.9467" fill="#FFB3AD"/>
+<circle cx="32.0583" cy="20.7042" r="4.65455" transform="rotate(15 32.0583 20.7042)" fill="#FFB3AD"/>
+<circle cx="22.3026" cy="30.1372" r="4.65455" transform="rotate(15 22.3026 30.1372)" fill="#FFB3AD"/>
+<circle cx="45.9281" cy="18.3972" r="4.65455" transform="rotate(15 45.9281 18.3972)" fill="#FFB3AD"/>
+<circle cx="56.4849" cy="28.454" r="4.65455" transform="rotate(15 56.4849 28.454)" fill="#FFB3AD"/>
+"""
+CAT_PAWS = f"""
 <path d="M173 155H138C129.163 155 122 162.163 122 171C122 179.837 129.163 187 138 187H173C181.837 187 189 179.837 189 171C189 162.163 181.837 155 173 155Z" fill="#8E7550"/>
-<path d="M229 155H208C199.163 155 192 162.163 192 171C192 179.837 199.163 187 208 187H229C237.837 187 245 179.837 245 171C245 162.163 237.837 155 229 155Z" fill="#8E7550"/>
+<g class="paw-r">
+  <path class="paw-fur" d="M229 155H208C199.163 155 192 162.163 192 171C192 179.837 199.163 187 208 187H229C237.837 187 245 179.837 245 171C245 162.163 237.837 155 229 155Z" fill="#8E7550"/>
+  <g class="beans" transform="translate(196 148) scale(.62)">{PAW_BEANS}</g>
+</g>
 """
 CAT_HEAD = """
 <path d="M117.5 83V53C117.5 35.3269 131.827 21 149.5 21H213C230.673 21 245 35.3269 245 53V83C245 100.673 230.673 115 213 115H149.5C131.827 115 117.5 100.673 117.5 83Z" fill="#8E7550"/>
-<path d="M252.215 4.05475L214.669 21.3838C212.02 22.6062 211.528 26.161 213.746 28.0563L237.4 48.2735C239.515 50.0815 242.785 49.2307 243.75 46.6208L257.642 9.07462C258.88 5.72993 255.453 2.56026 252.215 4.05475Z" fill="#725B2E"/>
-<path d="M118.25 48.6208L103.893 9.81926C102.728 6.67123 105.725 3.57504 108.909 4.63649L123.142 9.38061C123.38 9.46003 123.61 9.56171 123.83 9.68431L147.99 23.1979C150.42 24.5569 150.753 27.9207 148.636 29.7296L124.6 50.2735C122.485 52.0815 119.215 51.2307 118.25 48.6208Z" fill="#725B2E"/>
+<path class="ear-r" d="M252.215 4.05475L214.669 21.3838C212.02 22.6062 211.528 26.161 213.746 28.0563L237.4 48.2735C239.515 50.0815 242.785 49.2307 243.75 46.6208L257.642 9.07462C258.88 5.72993 255.453 2.56026 252.215 4.05475Z" fill="#725B2E"/>
+<path class="ear-l" d="M118.25 48.6208L103.893 9.81926C102.728 6.67123 105.725 3.57504 108.909 4.63649L123.142 9.38061C123.38 9.46003 123.61 9.56171 123.83 9.68431L147.99 23.1979C150.42 24.5569 150.753 27.9207 148.636 29.7296L124.6 50.2735C122.485 52.0815 119.215 51.2307 118.25 48.6208Z" fill="#725B2E"/>
 <g fill="none" stroke-width="8" stroke-linecap="round" stroke="#FFDEA6">
   <path d="M161.6 87.0264V94.9737C161.6 99.392 165.182 102.974 169.6 102.974H173.8C178.218 102.974 181.8 99.392 181.8 94.9737V90.7474"/>
   <path d="M202 87.0264V94.9737C202 99.392 198.418 102.974 194 102.974H189.8C185.382 102.974 181.8 99.392 181.8 94.9737V90.7474"/>
 </g>
-<g clip-path="url(#cat-eye-l)">
+<g class="eye" clip-path="url(#cat-eye-l)">
   <path d="M164 49H148C143.582 49 140 52.5817 140 57V73C140 77.4183 143.582 81 148 81H164C168.418 81 172 77.4183 172 73V57C172 52.5817 168.418 49 164 49Z" fill="white"/>
-  <path d="M164 49H160C155.582 49 152 52.5817 152 57V61C152 65.4183 155.582 69 160 69H164C168.418 69 172 65.4183 172 61V57C172 52.5817 168.418 49 164 49Z" fill="#3B0908"/>
+  <path class="pupil" d="M164 49H160C155.582 49 152 52.5817 152 57V61C152 65.4183 155.582 69 160 69H164C168.418 69 172 65.4183 172 61V57C172 52.5817 168.418 49 164 49Z" fill="#3B0908"/>
 </g>
-<g clip-path="url(#cat-eye-r)">
+<g class="eye" clip-path="url(#cat-eye-r)">
   <path d="M213 49H197C192.582 49 189 52.5817 189 57V73C189 77.4183 192.582 81 197 81H213C217.418 81 221 77.4183 221 73V57C221 52.5817 217.418 49 213 49Z" fill="white"/>
-  <path d="M214 49H210C205.582 49 202 52.5817 202 57V61C202 65.4183 205.582 69 210 69H214C218.418 69 222 65.4183 222 61V57C222 52.5817 218.418 49 214 49Z" fill="#3B0908"/>
+  <path class="pupil" d="M214 49H210C205.582 49 202 52.5817 202 57V61C202 65.4183 205.582 69 210 69H214C218.418 69 222 65.4183 222 61V57C222 52.5817 218.418 49 214 49Z" fill="#3B0908"/>
 </g>
 <g stroke-width="8" stroke-linecap="round" stroke="#3B0908">
   <path d="M96 63L126.361 73.109"/><path d="M89 84L127 84"/><path d="M97.8273 104.825L127.614 93.1303"/>
@@ -89,6 +101,28 @@ CAT_TAIL = """
 TABLE_TOP, TABLE_X, TABLE_W = 393, 110, 840
 CAT_X = 160  # the cat's paws rest on the table top
 
+# One 8s idle loop. Every part pivots from its own box (transform-box: fill-box).
+CAT_CSS = """
+.cat *{transform-box:fill-box}
+.body{transform-origin:50% 100%;animation:breathe 4s ease-in-out infinite}
+@keyframes breathe{50%{transform:scaleY(1.025)}}
+.head{transform-origin:50% 100%;animation:tilt 8s ease-in-out infinite}
+@keyframes tilt{0%,36%,58%,100%{transform:none}42%,52%{transform:rotate(-5deg) translateX(-3px)}}
+.eye{transform-origin:center;animation:blink 8s infinite}
+@keyframes blink{0%,26%,29%,31%,34%,100%{transform:none}27.5%,32.5%{transform:scaleY(.1)}}
+.pupil{animation:glance 8s ease-in-out infinite}
+@keyframes glance{0%,36%,58%,100%{transform:none}40%,54%{transform:translate(-12px,4px)}}
+.ear-r{transform-origin:20% 90%;animation:twitch 8s infinite}
+@keyframes twitch{0%,62%,68%,100%{transform:none}63.5%,66.5%{transform:rotate(-14deg)}65%{transform:rotate(2deg)}}
+.tail{transform-origin:50% 0;animation:swish 3.2s ease-in-out infinite alternate}
+@keyframes swish{from{transform:rotate(-7deg)}to{transform:rotate(9deg)}}
+.paw-r{transform-origin:20% 100%;animation:lift 8s cubic-bezier(.3,1.4,.5,1) infinite}
+@keyframes lift{0%,74%,90%,100%{transform:none}78%,86%{transform:translateY(-26px) rotate(-18deg)}}
+.beans{opacity:0;animation:beans 8s infinite}
+@keyframes beans{0%,76%,88%,100%{opacity:0}78%,86%{opacity:1}}
+@media (prefers-reduced-motion: reduce){.cat *{animation:none!important}}
+"""
+
 HERO = f"""
 <defs>{CAT_DEFS}</defs>
 <text x="56" y="84" class="mono" font-size="13" fill="$muted" letter-spacing="2">HELLO, I'M</text>
@@ -100,14 +134,16 @@ HERO = f"""
 <rect x="{TABLE_X + TABLE_W - 68}" y="{TABLE_TOP + 20}" width="28" height="80" rx="14" fill="$line"/>
 <rect x="{TABLE_X}" y="{TABLE_TOP}" width="{TABLE_W}" height="30" rx="15" fill="$surface2"/>
 
-<g transform="translate({CAT_X} {TABLE_TOP - 187})">{CAT_BODY}{CAT_PAWS}{CAT_HEAD}</g>
-<g transform="translate({TABLE_X + 2} {TABLE_TOP - 21}) scale(.18)">{CAT_TAIL}</g>
+<g class="cat" transform="translate({CAT_X} {TABLE_TOP - 187})">
+  <g class="body">{CAT_BODY}</g>{CAT_PAWS}<g class="head">{CAT_HEAD}</g>
+</g>
+<g class="cat" transform="translate({TABLE_X + 2} {TABLE_TOP - 21}) scale(.18)"><g class="tail">{CAT_TAIL}</g></g>
 """
 
 # ---------------------------------------------------------------- build
 
 ASSETS = {
-    "hero": svg(1000, 520, "", HERO),
+    "hero": svg(1000, 520, CAT_CSS, HERO),
 }
 
 
