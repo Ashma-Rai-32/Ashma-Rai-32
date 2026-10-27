@@ -25,6 +25,7 @@ OLED_FRAME, OLED_SCREEN, OLED_PX = "#17181A", "#050607", "#A6ECFF"
 
 BASE_CSS = """
 .serif{font-family:$serif}.sans{font-family:$sans}.mono{font-family:$mono}
+.c{transform-box:fill-box;transform-origin:center}
 """
 
 
@@ -38,6 +39,15 @@ def svg(w, h, css, body, framed=True):
 
 # ---------------------------------------------------------------- hero
 
+HERO_CSS = """
+.blink{animation:blinkon 1s steps(1) infinite}
+@keyframes blinkon{50%{opacity:0}}
+.eye{animation:eye 5s infinite}
+@keyframes eye{0%,90%,100%{transform:scaleY(1)}94%{transform:scaleY(.1)}}
+.look{animation:look 10s ease-in-out infinite}
+@keyframes look{0%,35%{transform:translateX(0)}40%,55%{transform:translateX(-12px)}60%,78%{transform:translateX(12px)}83%,100%{transform:translateX(0)}}
+"""
+
 HERO = f"""
 <defs>
   <pattern id="grid" width="4" height="4" patternUnits="userSpaceOnUse">
@@ -48,30 +58,32 @@ HERO = f"""
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
 </defs>
-<text x="56" y="80" class="mono" font-size="13" fill="$muted" letter-spacing="2">HELLO, I'M</text>
-<text x="52" y="154" class="serif" font-size="76" fill="$ink">Ashma Rai<tspan fill="$accent">.</tspan></text>
-<text x="56" y="198" class="sans" font-size="18" fill="$muted">I design and build interfaces, AI agents and small machines.</text>
-<line x1="56" y1="284" x2="612" y2="284" stroke="$line"/>
-<text x="56" y="312" class="mono" font-size="11" fill="$muted" letter-spacing="1.6">AI AGENTS  ·  HARDWARE  ·  INTERACTION DESIGN  ·  COMPUTER VISION</text>
+<text x="56" y="104" class="mono" font-size="13" fill="$muted" letter-spacing="2">HELLO, I'M</text>
+<text x="52" y="178" class="serif" font-size="76" fill="$ink">Ashma Rai<tspan fill="$accent">.</tspan></text>
+<text x="56" y="222" class="sans" font-size="18" fill="$muted">I design and build interfaces, AI agents and small machines.</text>
+<line x1="56" y1="252" x2="612" y2="252" stroke="$line"/>
+<text x="56" y="280" class="mono" font-size="11" fill="$muted" letter-spacing="1.6">AI AGENTS  ·  HARDWARE  ·  INTERACTION DESIGN  ·  COMPUTER VISION</text>
 
 <rect x="664" y="56" width="288" height="228" rx="16" fill="{OLED_FRAME}"/>
 <rect x="680" y="72" width="256" height="136" rx="6" fill="{OLED_SCREEN}"/>
 <g filter="url(#glow)">
-  <rect x="742" y="100" width="36" height="52" rx="10" fill="{OLED_PX}"/>
-  <rect x="838" y="100" width="36" height="52" rx="10" fill="{OLED_PX}"/>
+  <g class="look c">
+    <rect class="eye c" x="742" y="100" width="36" height="52" rx="10" fill="{OLED_PX}"/>
+    <rect class="eye c" x="838" y="100" width="36" height="52" rx="10" fill="{OLED_PX}"/>
+  </g>
   <path d="M796 174 q12 10 24 0" fill="none" stroke="{OLED_PX}" stroke-width="4" stroke-linecap="square"/>
 </g>
 <rect x="680" y="72" width="256" height="136" fill="url(#grid)" opacity=".85"/>
 <text x="682" y="238" class="mono" font-size="11" fill="#8A8F96">bobby-pinout</text>
 <text x="682" y="256" class="mono" font-size="10" fill="#5E636A">ESP32 · SSD1306 · 128×64</text>
-<circle cx="926" cy="234" r="5" fill="$accent"/>
+<circle class="blink" cx="926" cy="234" r="5" fill="$accent"/>
 {''.join(f'<rect x="{690 + i * 18}" y="268" width="8" height="6" rx="1" fill="#C9A85A"/>' for i in range(14))}
 """
 
 # ---------------------------------------------------------------- build
 
 ASSETS = {
-    "hero": svg(1000, 340, "", HERO),
+    "hero": svg(1000, 340, HERO_CSS, HERO),
 }
 
 
